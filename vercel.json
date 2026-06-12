@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/anthropic/(.*)",
+      "destination": "/api/anthropic/$1"
+    }
+  ],
+  "functions": {
+    "api/**/*.js": {
+      "maxDuration": 60
+    }
+  }
+}
