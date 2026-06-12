@@ -1,0 +1,345 @@
+.apikey-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.apikey-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* ── Branding Side ── */
+.apikey-branding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  background:
+    radial-gradient(ellipse at 20% 50%, var(--accent-bg) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(170, 59, 255, 0.05) 0%, transparent 50%);
+  border-right: 1px solid var(--border);
+}
+
+.apikey-brand-content {
+  max-width: 440px;
+}
+
+.apikey-logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.apikey-logo-cross {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.apikey-logo-doc {
+  color: var(--accent);
+  opacity: 0.5;
+  font-size: 28px;
+}
+
+.apikey-title {
+  font-family: var(--heading);
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  margin: 0 0 8px;
+  background: linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.apikey-tagline {
+  font-size: 18px;
+  color: var(--text);
+  margin: 0 0 40px;
+  letter-spacing: -0.2px;
+}
+
+.apikey-features {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.apikey-feature {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.apikey-feature-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.apikey-feature-text h3 {
+  font-family: var(--heading);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0 0 4px;
+}
+
+.apikey-feature-text p {
+  font-size: 13px;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* ── Form Side ── */
+.apikey-form-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+
+.apikey-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 36px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.apikey-card-title {
+  font-family: var(--heading);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0 0 8px;
+}
+
+.apikey-card-subtitle {
+  font-size: 14px;
+  color: var(--text);
+  margin: 0 0 28px;
+  line-height: 1.5;
+}
+
+/* ── Input ── */
+.apikey-input-group {
+  margin-bottom: 24px;
+}
+
+.apikey-input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.apikey-input-wrapper:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.apikey-input-icon {
+  flex-shrink: 0;
+  margin-left: 14px;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.apikey-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 12px;
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--text-h);
+  min-width: 0;
+}
+
+.apikey-input::placeholder {
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.apikey-toggle-vis {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 12px 14px;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  transition: color 0.15s;
+}
+
+.apikey-toggle-vis:hover {
+  color: var(--text-h);
+}
+
+.apikey-help-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.apikey-help-icon {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--accent);
+}
+
+/* ── Submit Button ── */
+.apikey-submit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s, background 0.3s;
+}
+
+.apikey-submit:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.apikey-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.apikey-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.apikey-submit-success {
+  background: #22c55e;
+}
+
+@keyframes apikey-spin {
+  to { transform: rotate(360deg); }
+}
+
+.apikey-spinner {
+  animation: apikey-spin 0.8s linear infinite;
+}
+
+/* ── Status Messages ── */
+.apikey-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.apikey-status-error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.apikey-status-success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* ── Link ── */
+.apikey-get-key-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.apikey-get-key-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .apikey-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .apikey-branding {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 40px 24px;
+  }
+
+  .apikey-brand-content {
+    text-align: center;
+  }
+
+  .apikey-title {
+    font-size: 36px;
+  }
+
+  .apikey-tagline {
+    margin-bottom: 28px;
+  }
+
+  .apikey-features {
+    gap: 16px;
+  }
+
+  .apikey-feature {
+    text-align: left;
+  }
+
+  .apikey-form-side {
+    padding: 32px 24px 48px;
+  }
+
+  .apikey-card {
+    padding: 28px 24px;
+  }
+}
