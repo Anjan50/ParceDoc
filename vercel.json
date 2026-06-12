@@ -1,13 +1,5 @@
 {
-  "rewrites": [
-    {
-      "source": "/api/anthropic/(.*)",
-      "destination": "/api/anthropic/$1"
-    }
-  ],
-  "functions": {
-    "api/**/*.js": {
-      "maxDuration": 60
-    }
-  }
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 }

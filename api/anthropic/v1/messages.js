@@ -1,15 +1,14 @@
+export const config = {
+  maxDuration: 60,
+};
+
 export default async function handler(req, res) {
-  // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Extract the subpath after /api/anthropic/
-  // e.g., /api/anthropic/v1/messages → /v1/messages
-  const subpath = req.url.replace(/^\/api\/anthropic/, '');
-  const targetUrl = `https://api.anthropic.com${subpath}`;
+  const targetUrl = 'https://api.anthropic.com/v1/messages';
 
-  // Forward relevant headers
   const headers = {
     'Content-Type': 'application/json',
     'x-api-key': req.headers['x-api-key'] || '',
@@ -33,7 +32,6 @@ export default async function handler(req, res) {
     }
 
     if (isStreaming) {
-      // Stream the response back
       res.setHeader('Content-Type', 'text/event-stream');
       res.setHeader('Cache-Control', 'no-cache');
       res.setHeader('Connection', 'keep-alive');
@@ -47,13 +45,12 @@ export default async function handler(req, res) {
           if (done) break;
           res.write(decoder.decode(value, { stream: true }));
         }
-      } catch (streamErr) {
-        // Client may have disconnected
+      } catch {
+        // client disconnected
       } finally {
         res.end();
       }
     } else {
-      // Non-streaming: forward the full response
       const body = await response.text();
       res.setHeader('Content-Type', 'application/json');
       res.status(response.status);
